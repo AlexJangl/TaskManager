@@ -13,10 +13,8 @@ class CreateTaskLabelsTable extends Migration
      */
     public function up()
     {
-        Schema::create('task_labels', function (Blueprint $table) {
-            $table->unsignedBigInteger('task_id');
-            $table->unsignedBigInteger('label_id');
-
+        Schema::create('task_labels', function (Blueprint $table)
+       {
             $table->foreignId('task_id')->references('id')->on('tasks');
             $table->foreignId('label_id')->references('id')->on('labels');
         });
